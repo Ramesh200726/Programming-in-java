@@ -72,50 +72,60 @@ public class SmartHomeDemo
     {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("1. Smart Fan");
-        System.out.println("2. Smart Light");
-        System.out.println("3. Smart AC");
+        while (true)
+        {
+            System.out.println("1. Smart Fan");
+            System.out.println("2. Smart Light");
+            System.out.println("3. Smart AC");
+            System.out.println("4. Exit");
 
-        System.out.print("Enter device choice: ");
-        int deviceChoice = sc.nextInt();
+            System.out.print("Enter device choice: ");
+            int deviceChoice = sc.nextInt();
 
-        SmartDevice device;
+            if (deviceChoice == 4)
+            {
+                System.out.println("Exit");
+                break;
+            }
 
-        if (deviceChoice == 1)
-        {
-            device = new SmartFan();
-        }
-        else if (deviceChoice == 2)
-        {
-            device = new SmartLight();
-        }
-        else if (deviceChoice == 3)
-        {
-            device = new SmartAC();
-        }
-        else
-        {
-            System.out.println("Invalid device choice");
-            return;
-        }
+            SmartDevice device;
 
-        System.out.println("1. Turn ON");
-        System.out.println("2. Turn OFF");
+            if (deviceChoice == 1)
+            {
+                device = new SmartFan();
+            }
+            else if (deviceChoice == 2)
+            {
+                device = new SmartLight();
+            }
+            else if (deviceChoice == 3)
+            {
+                device = new SmartAC();
+            }
+            else
+            {
+                System.out.println("Invalid device choice");
+                continue;
+            }
 
-        System.out.print("Enter operation choice: ");
-        int operationChoice = sc.nextInt();
+            System.out.println("1. Turn ON");
+            System.out.println("2. Turn OFF");
 
-        if (operationChoice == 1)
-        {
-            device.turnOn();
-        }
-        else if (operationChoice == 2)
-        {
-            device.turnOff();
-        }
-        else
-        {
-            System.out.println("Invalid operation choice");
+            System.out.print("Enter operation choice: ");
+            int operationChoice = sc.nextInt();
+
+            if (operationChoice == 1)
+            {
+                device.turnOn();
+            }
+            else if (operationChoice == 2)
+            {
+                device.turnOff();
+            }
+            else
+            {
+                System.out.println("Invalid operation choice");
+            }
         }
 
         sc.close();
